@@ -114,6 +114,7 @@
     }
 
     .memories {
+      position: static !important;
       display: grid;
       grid-template-columns: repeat(2, 1fr);
       gap: 18px 12px;
@@ -121,14 +122,14 @@
     }
 
     .memory {
-      position: relative;
+      position: static !important;
       width: auto;
       margin: 0;
       padding: 6px 6px 12px;
       background: #fffdf8;
       box-shadow: 0 7px 15px rgba(120, 55, 75, .16);
-      transform: rotate(var(--tilt));
-      animation: appear .7s ease both;
+      transform: none !important;
+      animation: none;
     }
 
     .memory img {
