@@ -114,29 +114,54 @@
     }
 
     .memories {
-      position: static !important;
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 18px 12px;
-      margin-top: 25px;
+      position: fixed;
+      inset: 0;
+      z-index: 1;
+      pointer-events: none;
     }
 
     .memory {
-      position: static !important;
-      width: auto;
+      position: absolute !important;
+      width: 130px;
       margin: 0;
       padding: 6px 6px 12px;
       background: #fffdf8;
       box-shadow: 0 7px 15px rgba(120, 55, 75, .16);
-      transform: none !important;
-      animation: none;
+      transform: rotate(var(--tilt));
+      animation: appear .7s ease both;
     }
+
+    .memory:nth-child(1) { left: max(8px, calc(50% - 650px)); top: 10vh; }
+    .memory:nth-child(2) { right: max(8px, calc(50% - 650px)); top: 15vh; }
+    .memory:nth-child(3) { left: max(8px, calc(50% - 630px)); top: 42vh; }
+    .memory:nth-child(4) { right: max(8px, calc(50% - 630px)); top: 48vh; }
+    .memory:nth-child(5) { left: max(8px, calc(50% - 660px)); top: 75vh; }
+    .memory:nth-child(6) { right: max(8px, calc(50% - 660px)); top: 78vh; }
+    .memory:nth-child(7) { left: max(8px, calc(50% - 480px)); top: 3vh; }
+    .memory:nth-child(8) { right: max(8px, calc(50% - 480px)); top: 84vh; }
+    .memory:nth-child(9) { left: max(8px, calc(50% - 65px)); top: 88vh; }
 
     .memory img {
       display: block;
       width: 100%;
       aspect-ratio: 1 / 1;
       object-fit: cover;
+    }
+
+    @media (max-width: 1100px) {
+      .memories {
+        position: static;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 18px 12px;
+        margin-top: 25px;
+      }
+
+      .memory {
+        position: static !important;
+        width: auto;
+        transform: rotate(var(--tilt));
+      }
     }
 
     .postscript {
